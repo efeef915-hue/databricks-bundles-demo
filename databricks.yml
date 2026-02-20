@@ -12,6 +12,7 @@ resources:
   jobs:
     demo_job:
       name: demo_job_bundles_tony
+
       tasks:
         - task_key: run_notebook
           notebook_task:

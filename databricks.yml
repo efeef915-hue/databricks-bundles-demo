@@ -1,0 +1,26 @@
+bundle:
+  name: databricks_bundles_demo
+
+targets:
+  dev:
+    default: true
+    workspace:
+      host: https://adb-2629522690919246.6.azuredatabricks.net
+      root_path: /Workspace/Users/112830557@bancobcr.com/databricks-bundles-demo
+
+resources:
+  jobs:
+    demo_job:
+      name: demo_job_bundles_tony
+      tasks:
+        - task_key: run_notebook
+          notebook_task:
+            notebook_path: ./src/demo_notebook
+          job_cluster_key: job_cluster
+
+      job_clusters:
+        - job_cluster_key: job_cluster
+          new_cluster:
+            spark_version: 13.3.x-scala2.12
+            node_type_id: Standard_DS3_v2
+            num_workers: 1
